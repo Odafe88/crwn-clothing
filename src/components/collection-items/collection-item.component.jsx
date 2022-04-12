@@ -4,7 +4,6 @@ import CustomButton from '../custom-button/custom-button.component';
 import { connect } from 'react-redux';
 import { CollectionItemContainer, FooterContainer, ButtonContainer, ImageContainer, NameContainer, PriceContainer } from './collection-item.styles';
 
-import './collection-item.styles.scss';
 import { addItem } from '../../redux/cart/cart.actions';
 
 const CollectionItem = ({ item, addItem }) => {
@@ -13,7 +12,7 @@ const CollectionItem = ({ item, addItem }) => {
     console.log(item)
     return (
         <CollectionItemContainer>
-            <ImageContainer imageUrl={imageUrl} />
+            <ImageContainer className="image" imageUrl={imageUrl} />
             <FooterContainer>
                 <NameContainer>{name}</NameContainer>
                 <PriceContainer>&#8358;{price}</PriceContainer>

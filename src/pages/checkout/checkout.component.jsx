@@ -9,36 +9,41 @@ import { selectUserEmail, selectUserName } from "../../redux/user/user.selectors
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import Flutterwave from "../../components/flutterwave-component/flutterwave.component";
 
-import './checkout.styles.scss';
+import {
+    CheckoutPageContainer,
+    CheckoutHeaderContainer,
+    HeaderBlockContainer,
+    TotalContainer
+} from './checkout.styles';
 
 const CheckoutPage = ({ cartItems, total, userEmail, name }) => (
-    <div className="checkout-page">
-        <div className="checkout-header">
-            <div className="header-block">
+    <CheckoutPageContainer>
+        <CheckoutHeaderContainer>
+            <HeaderBlockContainer>
                 <span>Product</span>
-            </div>
-            <div className="header-block">
+            </HeaderBlockContainer>
+            <HeaderBlockContainer>
                 <span>Description</span>
-            </div>
-            <div className="header-block">
+            </HeaderBlockContainer>
+            <HeaderBlockContainer>
                 <span>Quantity</span>
-            </div>
-            <div className="header-block">
+            </HeaderBlockContainer>
+            <HeaderBlockContainer>
                 <span>Price</span>
-            </div>
-            <div className="header-block">
+            </HeaderBlockContainer>
+            <HeaderBlockContainer>
                 <span>Remove</span>
-            </div>
-        </div>
+            </HeaderBlockContainer>
+        </CheckoutHeaderContainer>
         {
             cartItems.map(cartItem =>
                 <CheckoutItem cartItem={cartItem} />)
         }
-        <div className="total">
+        <TotalContainer>
             <span>TOTAL: &#8358;{total}</span>
-        </div>
+        </TotalContainer>
         <Flutterwave name={name} email={userEmail} total={total} />
-    </div>
+    </CheckoutPageContainer>
 )
 
 const mapStateToProps = createStructuredSelector({
